@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YT Batch Downloader</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/>
+        </svg>
+        <h1>YT Batch Downloader</h1>
+      </div>
+      <p class="subtitle">Paste YouTube URLs, pick a format, and download in bulk</p>
+    </header>
+
+    <!-- Add URLs section -->
+    <section class="card add-section">
+      <h2>Add Videos</h2>
+
+      <textarea
+        id="urlInput"
+        placeholder="Paste one or more YouTube URLs (one per line)&#10;&#10;https://www.youtube.com/watch?v=...&#10;https://youtu.be/..."
+        rows="5"
+        spellcheck="false"
+      ></textarea>
+
+      <div class="options-row">
+        <div class="option-group">
+          <label for="formatSelect">Format</label>
+          <select id="formatSelect">
+            <option value="mp4">MP4 — Video</option>
+            <option value="mp3">MP3 — Audio only</option>
+            <option value="best">Best — Auto quality</option>
+          </select>
+        </div>
+
+        <div class="option-group" id="qualityGroup">
+          <label for="qualitySelect">Quality</label>
+          <select id="qualitySelect">
+            <option value="best">Best available</option>
+            <option value="1080">1080p</option>
+            <option value="720">720p</option>
+            <option value="480">480p</option>
+          </select>
+        </div>
+
+        <div class="btn-row">
+          <button id="addBtn" class="btn btn-secondary">+ Add to Queue</button>
+          <button id="startAllBtn" class="btn btn-primary">&#9654; Download All</button>
+        </div>
+      </div>
+
+      <p id="addError" class="error-msg hidden"></p>
+    </section>
+
+    <!-- Queue section -->
+    <section class="card queue-section">
+      <div class="queue-header">
+        <h2>Queue</h2>
+        <div class="queue-actions">
+          <span id="queueStats" class="queue-stats"></span>
+          <button id="clearDoneBtn" class="btn btn-ghost btn-sm">Clear completed</button>
+        </div>
+      </div>
+
+      <div id="jobList">
+        <div class="empty-state" id="emptyState">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+          </svg>
+          <p>No downloads yet — add some URLs above</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

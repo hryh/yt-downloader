@@ -3,3 +3,4 @@ uvicorn[standard]>=0.29.0
 yt-dlp>=2024.4.9
 python-multipart>=0.0.9
 aiofiles>=23.2.1
+static-ffmpeg>=2.5

@@ -26,17 +26,7 @@ A locally-hosted web app for batch downloading YouTube videos as **MP4** or **MP
 | Requirement | Notes |
 |---|---|
 | **Python 3.10+** | [python.org](https://www.python.org/downloads/) |
-| **FFmpeg** | Required for MP3 conversion and MP4 merging |
-
-### Installing FFmpeg (Windows)
-
-The easiest way is via **winget** (built into Windows 11):
-
-```
-winget install Gyan.FFmpeg
-```
-
-After installing, **close and reopen** any terminal window for the PATH change to take effect.
+| **FFmpeg** | Bundled automatically via `static-ffmpeg` — no manual install needed |
 
 ---
 

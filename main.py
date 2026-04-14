@@ -6,6 +6,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Dict, List, Optional
 
+import static_ffmpeg
 import yt_dlp
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse, StreamingResponse
@@ -38,6 +39,8 @@ main_loop: Optional[asyncio.AbstractEventLoop] = None
 async def startup() -> None:
     global main_loop
     main_loop = asyncio.get_running_loop()
+    # Add bundled FFmpeg binaries to PATH (downloads on first run, cached after)
+    static_ffmpeg.add_paths()
 
 
 # ---------------------------------------------------------------------------
